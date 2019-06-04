@@ -1,0 +1,2 @@
+#!/bin/sh
+udisksctl unmount -b /dev/disk/by-label/$1

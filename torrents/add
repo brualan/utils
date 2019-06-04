@@ -1,0 +1,20 @@
+#!/bin/bash
+if [ -z "$1" ]
+then
+	echo "No argument supplied"
+	exit 1
+fi
+
+OUTPUT=$(btinfo "$1")
+
+TORRENT_NAME=$(echo "${OUTPUT}" | grep 'Name\:\ ' | sed 's/Name\:\ //')
+NUM_OF_FILES=$(echo "${OUTPUT}" | grep 'Number of files\:\ ' | sed 's/Number of files\:\ //')
+
+if [[ $NUM_OF_FILES == 1 ]]; then
+	btcli add $1
+else
+	btcli add -d "$TORRENT_NAME" "$1"
+
+fi
+
+rm "$1"

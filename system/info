@@ -1,0 +1,27 @@
+#!/bin/sh
+KERNEL=`uname -r`
+
+printf "Kernel: $KERNEL\n\n"
+
+df -h "/" | awk ' NR==2 {print "Storage usage: " $3 "/" $2 "\n"}'
+
+free -h | awk 'NR==2 {print "Mem:  " $3 "/" $2}
+	       NR==3 {print "Swap: " $3 "/" $2 "\n"}'
+
+# system-specific, uncomment what is needed
+sensors | awk '/Core 0/ {print "CPU temp: " $3 "\n"}' # other
+#vcgencmd measure_temp # raspberry pi 3b+
+
+UPTIME_P=`uptime -p`
+UPTIME_S=`uptime -s`
+
+printf "$UPTIME_P since $UPTIME_S\n\n"
+
+
+IP=`$HOME/utils/system/ip`
+MAC=`$HOME/utils/system/mac`
+
+printf "IP:  $IP\n"
+printf "MAC: $MAC\n\n"
+
+ps -eo %mem,comm --sort=-%mem | head -n 10

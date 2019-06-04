@@ -1,0 +1,6 @@
+#!/bin/sh
+mkdir $2_lesson
+ffmpeg -i $1 -c:v libx264 -c:a copy -s hd1080 -crf 25 -preset veryslow $2_lesson/$2_1080p.mp4 &&
+ffmpeg -i $1 -c:v libx264 -c:a copy -s hd720 -crf 25 -preset veryslow $2_lesson/$2_720p.mp4 &&
+ffmpeg -i $1 -c:v libx264 -c:a copy -s hd480 -crf 25 -preset veryslow $2_lesson/$2_480p.mp4 &&
+ffmpeg -i $1 -c:v libx264 -c:a copy -s nhd   -crf 25 -preset veryslow $2_lesson/$2_360p.mp4  # 360p 640x360

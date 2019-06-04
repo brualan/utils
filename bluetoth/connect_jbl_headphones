@@ -1,0 +1,2 @@
+#!/bin/sh
+echo connect $PRIVATE_JBL_HEADPHONES | bluetoothctl

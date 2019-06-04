@@ -1,0 +1,12 @@
+#!/bin/bash
+ID=$(xinput list | grep Touchpad | awk '{print substr($6,4)}')
+echo "touchpad id: ${ID}"
+TAPING_ID=$(xinput list-props $ID | grep "Tapping Enabled (" | awk '{print substr($4, 2, length($4)-3)}')
+echo "touch prop id: ${TAPING_ID}"
+NATURAL_SCROLLING_ID=$(xinput list-props $ID | grep "Natural Scrolling Enabled (" | awk '{print substr($5, 2, length($5)-3)}')
+echo "natural scroling id: ${NATURAL_SCROLLING_ID}"
+MIDDLE_CLICK_ID=$(xinput list-props $ID | grep "Middle Emulation Enabled (" | awk '{print substr($5, 2, length($5)-3)}')
+echo "middle click id: ${MIDDLE_CLICK_ID}"
+xinput set-prop $ID $TAPING_ID 1
+xinput set-prop $ID $NATURAL_SCROLLING_ID 1
+xinput set-prop $ID $MIDDLE_CLICK_ID 1
