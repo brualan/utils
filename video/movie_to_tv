@@ -1,5 +1,5 @@
 #!/bin/sh
 BASENAME=`basename $1`
-udisksctl mount -b /dev/disk/by-label/$PRIVATE_MOVIE_HARD_DRIVE_NAME && \
-	ffmpeg -i $1 -vcodec copy -acodec mp3 /media/$USER/$PRIVATE_MOVIE_HARD_DRIVE_NAME/$BASENAME && \
-	udisksctl unmount -b /dev/disk/by-label/$PRIVATE_MOVIE_HARD_DRIVE_NAME
+udisksctl mount -b /dev/disk/by-label/Transcend && \
+	ffmpeg -i $1 -vcodec copy -acodec mp3 /media/$USER/Transcend/$BASENAME && \
+	udisksctl unmount -b /dev/disk/by-label/Transcend
