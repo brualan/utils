@@ -1,2 +1,2 @@
 #!/bin/sh
-curl --silent -H "Accept-Language: ${LANG%_*}" --compressed "http://wttr.in/${1-}?nq"  | head -n-2
+curl --silent -H "Accept-Language: ${LANG%_*}" "http://wttr.in/${1-}?nq"  | head -n-2
