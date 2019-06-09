@@ -1,0 +1,3 @@
+#!/bin/sh
+read THERMAL_INFO < /sys/class/thermal/thermal_zone0/temp
+echo $(($THERMAL_INFO/1000))

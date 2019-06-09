@@ -9,7 +9,7 @@ free -h | awk 'NR==2 {print "Mem:  " $3 "/" $2}
 	       NR==3 {print "Swap: " $3 "/" $2 "\n"}'
 
 # system-specific, uncomment what is needed
-sensors | awk '/Core 0/ {print "CPU temp: " $3 "\n"}' # other
+~/utils/system/cpu_temp | sed 's/^/CPU temp: /' # other
 #vcgencmd measure_temp # raspberry pi 3b+
 
 UPTIME_P=`uptime -p`
