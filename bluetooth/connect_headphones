@@ -1,3 +1,0 @@
-#!/bin/sh
-HEADPHONES_MAC=`echo exit | bluetoothctl | grep JBL | awk '{ print $4 }'`
-echo connect $HEADPHONES_MAC | bluetoothctl
