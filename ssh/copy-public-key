@@ -1,0 +1,2 @@
+#!/bin/sh
+xclip -selection clipboard < $HOME/.ssh/id_rsa.pub
