@@ -1,0 +1,4 @@
+#/bin/sh
+read B < /sys/class/backlight/intel_backlight/brightness
+read MAX_B < /sys/class/backlight/intel_backlight/max_brightness
+echo $(($B * 100/$MAX_B))%

@@ -1,0 +1,11 @@
+#!/bin/sh
+read B < /sys/class/backlight/intel_backlight/brightness
+read MAX_B < /sys/class/backlight/intel_backlight/max_brightness
+
+# change in brightness in percentage
+STEP="10"
+[ -z $1 ] || STEP=$1
+
+NEW_B=`echo $(($B + $MAX_B / 100 * $STEP))`
+
+[ "$NEW_B" -le "$MAX_B" ] && echo $NEW_B > /sys/class/backlight/intel_backlight/brightness
