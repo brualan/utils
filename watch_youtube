@@ -1,2 +1,0 @@
-#!/bin/sh
-~/go/src/github.com/brualan/ytsubs/ytsubs | xargs mpv --quiet --ytdl-format="bestvideo[height<=?1080][fps<=?60][vcodec!=?vp9]+bestaudio/best" --fs
