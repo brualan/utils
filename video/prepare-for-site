@@ -1,0 +1,14 @@
+#!/bin/sh
+
+DIR="script-output"
+
+[ -d "$DIR" ] && echo "please remove $DIR directory" && exit 1
+
+mkdir -p "$DIR"
+
+CORE_COUNT=`grep -c ^processor /proc/cpuinfo`
+
+for f in *mp4; do ffmpeg -y -i $f -s hd720 "$DIR/$f.mp4"; done # encode mp4 video
+find -maxdepth 1 -name "*mp4" | xargs -n 1 -P 4 -I "{}" ffmpeg -y -i "{}" -s hd720 -ss 00:00:05.000 -vframes 1 "$DIR/{}.jpg" # thumbnails
+
+rename 's/\.mp4\./\./' $DIR/*
