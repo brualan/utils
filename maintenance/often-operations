@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# syncing
+~/utils/sync-pass
+~/utils/maintenance/upgrade_system
+
+# clean up
+~/utils/maintenance/purge-orphan-packaeges
+~/utils/maintenance/find-empty
+
+# other
+~/utils/monitors/allow-brightness-control
