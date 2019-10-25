@@ -4,8 +4,8 @@ while true; do
 	if [ -z "$NEW_ORPHANS" ]; then 
 		exit
 	else
-		echo "$NEW_ORPHANS" | xargs sudo apt purge
+		sudo apt purge "$NEW_ORPHANS"
 		sudo apt autoremove
+		NEW_ORPHANS=`deborphan`
 	fi
-	NEW_ORPHANS=`deborphan`
 done
