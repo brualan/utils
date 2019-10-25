@@ -1,0 +1,12 @@
+#!/bin/sh
+
+INPUT="$1"
+SIZE="$2"
+OUTPUT="$3"
+
+[ -z "$INPUT" ] && echo "specify input file" && exit 1
+[ -z "$SIZE" ] && echo "specify resize dementions" && exit 1
+
+[ -z "$OUTPUT" ] && OUTPUT="$INPUT"
+
+convert "$INPUT" -resize "$SIZE" "$OUTPUT"
