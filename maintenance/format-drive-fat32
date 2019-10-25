@@ -1,0 +1,8 @@
+#!/bin/sh
+
+[ -z "$1" ] && echo "specify disk device" && exit 1
+
+NAME="$2"
+[ -z "$NAME" ] && NAME="storage device"
+
+sudo mkfs.vfat -n '$NAME' -I $1
