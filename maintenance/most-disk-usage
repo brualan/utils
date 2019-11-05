@@ -1,0 +1,2 @@
+#!/bin/sh
+du -shx * 2>/dev/null | sort -rh | head -10
