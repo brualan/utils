@@ -1,1 +1,0 @@
-pm uninstall -k --user 0 <pack name>
