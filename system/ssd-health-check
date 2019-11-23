@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo smartctl -a /dev/nvme0n1

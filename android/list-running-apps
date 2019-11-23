@@ -1,0 +1,2 @@
+#!/bin/sh
+adb shell ps | sort -k 5 -h

@@ -1,0 +1,2 @@
+#!/bin/sh
+ adb pull `adb shell pm path $1 | sed 's/package://g'`
