@@ -5,4 +5,4 @@
 NAME="$2"
 [ -z "$NAME" ] && NAME="storage device"
 
-sudo mkfs.vfat -n '$NAME' -I $1
+sudo mkdosfs -F 32 -n "$NAME" -I $1
