@@ -1,6 +1,5 @@
 read -r -d '' APPS_LIST << EndOfAppsList
 com.apps.adrcotfas.goodtime
-com.philliphsu.clock2
 org.sufficientlysecure.keychain
 com.oF2pks.applicationsinfo
 org.videolan.vlc
