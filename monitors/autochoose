@@ -1,20 +1,14 @@
 #!/bin/sh
 
-# HDMI
-[ `xrandr | grep HDMI-2 | cut -d ' ' -f 2` = "connected" ] && \
-	xrandr --output HDMI-2 --auto --primary && \
-	xrandr --output eDP-1 --off && \
-	xrandr --output DP-1 --off && \
-	exit
+HDMI="HDMI-1"
+INTEGRATED="eDP-1"
 
-# VGA
-[ `xrandr | grep DP-1 | cut -d ' ' -f 2` = "connected" ] && \
-	xrandr --output DP-1 --auto --primary && \
-	xrandr --output eDP-1 --off && \
-	xrandr --output HDMI-2 --off && \
+# HDMI
+[ `xrandr | grep $HDMI | cut -d ' ' -f 2` = "connected" ] && \
+	xrandr --output $HDMI --auto --primary && \
+	xrandr --output $INTEGRATED --off && \
 	exit
 
 # integrated
-xrandr --output eDP-1 --auto --primary && \
-xrandr --output DP-1 --off && \
-xrandr --output HDMI-2 --off
+xrandr --output $INTEGRATED --auto --primary && \
+xrandr --output $HDMI --off
