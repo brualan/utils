@@ -1,7 +1,8 @@
 #!/bin/sh
 
+#com.apps.adrcotfas.goodtime
+
 read -r -d '' APPS_LIST << EndOfAppsList
-com.apps.adrcotfas.goodtime
 org.sufficientlysecure.keychain
 com.oF2pks.applicationsinfo
 org.videolan.vlc
