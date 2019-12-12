@@ -1,16 +1,4 @@
 #!/bin/sh
 
-#com.apps.adrcotfas.goodtime
-
-read -r -d '' APPS_LIST << EndOfAppsList
-org.sufficientlysecure.keychain
-com.oF2pks.applicationsinfo
-org.videolan.vlc
-com.simplemobiletools.gallery.pro
-com.zeapo.pwdstore
-org.totschnig.myexpenses
-EndOfAppsList
-
-
 fdroidcl update
-echo "$APPS_LIST" | xargs -I "{}" fdroidcl install {}
+~/utils/android/list-installes-apps | xargs -I "{}" fdroidcl install {} 2> /dev/null
