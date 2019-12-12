@@ -1,6 +1,6 @@
 #!/bin/sh
 THERMAL_INFO=""
 for d in /sys/class/thermal/thermal_zone*; do
-	[ `cat $d/type | cut -d " " -f 1` = "x86_pkg_temp" ] && THERMAL_INFO=`cat $d/temp`
+	[ `cut -d " " -f 1 "$d/type"` = "x86_pkg_temp" ] && read THERMAL_INFO < "$d/temp"
 done
 echo $(($THERMAL_INFO/1000))

@@ -1,5 +1,5 @@
 #!/bin/sh
 for interface in $(ip route show default | awk '/default/ {print $5}'); do
-	MAC=`cat /sys/class/net/$interface/address`
+	read MAC < "/sys/class/net/$interface/address"
 	printf "$interface $MAC\n"
 done
