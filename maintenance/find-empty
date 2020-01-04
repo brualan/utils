@@ -1,2 +1,2 @@
 #!/bin/sh
-find -empty -not -path "*/\.*" -not -path "\./go/*" -not -path "\./tor-browser/*"
+find -empty -not -path "*/\.*" -not -path "\./go/*"
