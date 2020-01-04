@@ -1,2 +1,2 @@
 #!/bin/sh
-pass git pull && pass git push
+pass git pull --quiet && pass git push --quiet
