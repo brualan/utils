@@ -1,2 +1,12 @@
 #!/bin/sh
-udisksctl mount -b /dev/disk/by-label/$1
+if [ -z "$1" ]; then
+	DEVICES=`ls /dev/disk/by-label/*`
+	DEVICES_COUNT=`echo $DEVICES | wc -l`
+	if [ $DEVICES_COUNT = "1" ]; then
+		udisksctl mount -b $DEVICES
+	else
+		echo "$DEVICES" | fzf -i | xargs -I "{}" udisksctl mount -b "{}"
+	fi
+else
+	udisksctl mount -b "/dev/disk/by-label/$1"
+fi
