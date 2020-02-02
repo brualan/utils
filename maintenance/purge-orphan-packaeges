@@ -1,11 +1,9 @@
 #!/bin/sh
-NEW_ORPHANS=`deborphan`
 while true; do
-	if [ -z "$NEW_ORPHANS" ]; then 
-		exit
-	else
-		sudo apt purge "$NEW_ORPHANS"
-		sudo apt autoremove
-		NEW_ORPHANS=`deborphan`
-	fi
+	NEW_ORPHANS=`deborphan`
+
+	[ -z "$NEW_ORPHANS" ] && exit
+
+	sudo apt purge $NEW_ORPHANS
+	sudo apt autoremove
 done
