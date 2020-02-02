@@ -1,2 +1,12 @@
 #!/bin/sh
-udisksctl unmount -b /dev/disk/by-label/$1
+if [ -z "$1" ]; then
+	DEVICES=`df -h | grep '/media' | cut -d' ' -f1`
+	DEVICES_COUNT=`echo $DEVICES | wc -l`
+	if [ $DEVICES_COUNT = "1" ]; then
+		udisksctl unmount -b $DEVICES
+	else
+		echo "$DEVICES" | fzf -i | xargs -I "{}" udisksctl unmount -b "{}"
+	fi
+else
+	udisksctl unmount -b "/dev/disk/by-label/$1"
+fi
