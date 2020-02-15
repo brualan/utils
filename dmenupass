@@ -1,0 +1,3 @@
+#!/bin/sh
+
+find "$PASSWORD_STORE_DIR" -name "*gpg" | sed "s|.gpg$||g; s|$PASSWORD_STORE_DIR/||g" | dmenu | xargs pass -c
