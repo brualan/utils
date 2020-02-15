@@ -1,0 +1,11 @@
+#!/bin/sh
+
+export RESTIC_PASSWORD=`pass backups/restic/lenovo-restic-repo-password`
+export ADDRESS=`pass backups/restic/lenovo-restic-repo-address`
+export AWS_ACCESS_KEY_ID=`pass backups/restic/aws-access-key-id`
+export AWS_SECRET_ACCESS_KEY=`pass backups/restic/aws-secret-access-key`
+restic -r "$ADDRESS" backup "$HOME" \
+	--exclude="$HOME/.cache" \
+	--exclude="$HOME/.npm" \
+	--exclude="$HOME/.thumbnails" \
+	--exclude="$HOME/.mozilla" \
