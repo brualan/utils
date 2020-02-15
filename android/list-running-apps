@@ -1,2 +1,2 @@
 #!/bin/sh
-adb shell ps | sort -k 5 -h
+adb shell ps | sed  '1d' | sort -k 5 -h
