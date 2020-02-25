@@ -4,11 +4,12 @@
 ~/utils/maintenance/upgrade_system
 ~/utils/sync-pass
 
+# other
+~/utils/monitors/allow-brightness-control
+
 # clean up
 printf "\n\norphaned packages\n"
 ~/utils/maintenance/purge-orphan-packaeges
 printf "\n\nempty files and directories\n"
 ~/utils/maintenance/find-empty
 
-# other
-~/utils/monitors/allow-brightness-control
