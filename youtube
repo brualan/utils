@@ -1,0 +1,10 @@
+#!/bin/sh
+
+CLIPBOARD=`xclip -o -sel clip | awk '{$1=$1};1'`
+
+case "$CLIPBOARD" in
+	*youtube.com*) mpv `echo "$CLIPBOARD"` ;;
+	*) mpv `~/go/src/github.com/brualan/ytsubs/ytsubs -d 5` ;;
+esac
+
+
