@@ -9,3 +9,5 @@ restic -r "$ADDRESS" backup "$HOME" \
 	--exclude="$HOME/.npm" \
 	--exclude="$HOME/.thumbnails" \
 	--exclude="$HOME/.mozilla" \
+	--exclude="$HOME/.cargo" \
+	--exclude="$HOME/.rustup" \
