@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# used to unlock password-store
+pass backups/restic/lenovo-restic-repo-password > /dev/null
+
+$HOME/utils/maintenance/cleanup
+
+$HOME/utils/maintenance/upgrade_system
+
+$HOME/utils/backup
