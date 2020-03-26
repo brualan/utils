@@ -1,0 +1,10 @@
+#!/bin/sh
+rmdir $HOME/* $HOME/.[!.]* * 2> /dev/null
+
+# remove last blank lines in text files
+ls "$HOME" | xargs -I "{}" file "{}" | grep text$ | cut -d':' -f1 | xargs -I "{}" sed -i -e :a -e '/^\n*$/{$d;N;};/\n$/ba' "{}"
+
+rm -rf $HOME/.local/share/Trash/*
+find $HOME -maxdepth 1 -empty -not -path "*/\.*" -delete
+jdupes -q -A -r -d `ls | sed "/\`go env GOPATH | sed \"s|$HOME/||\"\`/d"`
+$HOME/utils/maintenance/purge-orphan-packaeges
