@@ -1,0 +1,3 @@
+#!/bin/sh
+gpg --output mygpgkey_pub.gpg --armor --export
+gpg --output mygpgkey_sec.gpg --armor --export-secret-key
