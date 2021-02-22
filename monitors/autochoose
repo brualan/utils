@@ -5,10 +5,8 @@ INTEGRATED="eDP-1"
 
 # HDMI
 [ `xrandr | grep $HDMI | cut -d ' ' -f 2` = "connected" ] && \
-	xrandr --output $HDMI --auto --primary && \
-	xrandr --output $INTEGRATED --off && \
+	xrandr --output $HDMI --auto --primary --output $INTEGRATED --off && \
 	exit
 
 # integrated
-xrandr --output $INTEGRATED --auto --primary && \
-xrandr --output $HDMI --off
+xrandr --output $INTEGRATED --auto --primary --output $HDMI --off
